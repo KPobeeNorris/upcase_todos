@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  before_action :authenticate
 
   def index
     @todos = Todo.all
@@ -13,4 +14,7 @@ class TodosController < ApplicationController
     @todo.save!
     redirect_to todos_path
   end
+
+  private
+  
 end
