@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    set_session
+    sign_in_as(params[:session][:email])
     redirect_to root_path
   end
 end
