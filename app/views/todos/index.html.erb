@@ -4,5 +4,8 @@
 <%= link_to "Create new todo", new_todo_path %>
 
 <% @todos.each do |todo| %>
-  <li><%= todo.title %></li>
+  <li class="<%= "completed" if todo.completed? %>">
+    <%= todo.title %>
+    <%= button_to "Mark as done", todo_completion_path(todo) %>
+  </li>
 <% end %>
